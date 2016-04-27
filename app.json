@@ -1,0 +1,33 @@
+{
+    "id": "eu.jeroensomhorst.pathe",
+    "name": {
+        "en": "Pathe Cinema app",
+        "nl": "Pathe bioscoop agenda"
+    },
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Jeroen Somhorst",
+        "email": "j.somhorst@gmail.com"
+    },
+    "category":[
+      "internet"  
+    ],
+    "dependencies": {
+		"request": "*"
+	},
+    "permissions": [
+        "homey:manager:speech-output",
+        "homey:manager:speech-input"
+    ],
+    "speech":[
+        {
+            "id": "search_movies_today",
+            "importance": 1,
+            "triggers": {
+                "en": ["What movies run tonight","Which movies are currently scheduled at the cinema?"],
+                "nl": ["Welke films draaien vanavond","Draaien er nog leuke films vanavond","Zijn er nog leuke films in de bioscoop?"]
+            }
+        }
+    ]
+}

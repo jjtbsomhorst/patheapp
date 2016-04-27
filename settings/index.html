@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <script type="text/javascript" src="/manager/webserver/assets/js/angular.js"></script>
+        
+        <style>
+            .splash {
+  display: none;
+}
+
+[ng-cloak].splash {
+  background-color: #428bca;
+  width: 100%;
+  text-align: center;
+  color: white;
+  display: block !important;
+}
+        </style>
+    </head>
+    <body>
+        <div ng-controller="FormController">
+      
+        <h1>Pathe Bioscoop App</h1>
+        <div ng-cloack="" ng-hide="loaded">
+            <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
+        </div>
+        <article ng-show="loaded" class="ng-cloak">
+       
+        
+        Om goed gebruik te maken van de Pathe bioscoop app dien je hieronder aan te geven voor welke bioscoop je de informatie op wilt vragen.
+        
+        <select ng-model="cinema" ng-options="c.name for c in cinemas"></select>
+        
+        <button ng-click="saveForm()">Save</button>
+        </article>
+        </div>
+        <script type="text/javascript">
+        function onHomeyReady(){
+            Homey.ready();
+            
+            var app = angular.module('patheSettings',[]);
+            app.controller('FormController',['$scope','$http',function($scope,$http){
+                $scope.loaded = false;
+                $scope.cinema = Homey.get('currentCinema');
+                $scope.cinemas = [];
+
+                $http.get('/api/app/eu.jeroensomhorst.pathe/').success(function(data){
+                    $scope.cinemas = JSON.parse(data.result);
+                    $scope.loaded = true;
+                }).error(function(){
+                    console.log('Error retrieving data');
+                });
+                
+                $scope.saveForm = function(){
+                    Homey.set('currentCinema',$scope.cinema.id);
+                    Homey.set('currentCinemaName',$scope.cinema.name);
+                }
+
+            }]);
+            
+            
+            
+            
+            angular.bootstrap(document,['patheSettings']);
+            
+        }
+        </script>
+    </body>
+</html>
