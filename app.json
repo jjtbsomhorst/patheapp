@@ -25,8 +25,8 @@
             "id": "search_movies_today",
             "importance": 1,
             "triggers": {
-                "en": ["What movies run tonight","Are there any good movies scheduled tonight?","Are there any good movies at the cinema?","Can you tell me which movies are scheduled tonight?"],
-                "nl": ["Welke films draaien er vanavond","Draaien er nog leuke films vanavond","Zijn er nog leuke films in de bioscoop?","Kun je mij vertellen welke films er vanavond draaien?"]
+                "en": ["What movies run tonight"],
+                "nl": ["Welke films draaien er vandaag","Draaien er nog leuke films vandaag","Zijn er nog leuke films in de bioscoop?","Kun je mij vertellen welke films er vandaag draaien?"]
             }
         }
     ]

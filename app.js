@@ -52,6 +52,7 @@ var onScheduleTrigger = function(){
 
 	
 	if(schedule == null){
+		Homey.manager('speech-output').say(__('loadingmessage'));
 		var options = defaultOptions;
 	options.path = '/v1/cinemas/schedules?date='+currentDate.substr(0,10)+'&ids='+currentCinemaId;
 		

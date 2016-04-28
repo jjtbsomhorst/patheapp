@@ -1,5 +1,6 @@
 {
    "nocinemaselected": "It seems that you havent selected your favorite Cinema yet. Please change this in the settings",
    "movieschedulestart":"At __cinema__ the following movies are scheduled:",   
-   "moviescheduleline":"__moviename__ runs at __movietime__"
+   "moviescheduleline":"__moviename__ runs at __movietime__",
+   "loadingmessage":"Please wait while I lookup that up for you"
 }
