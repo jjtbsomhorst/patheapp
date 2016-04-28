@@ -1,1 +1,5 @@
-{}
+{
+   "nocinemaselected": "U dient een bioscoop te selecteren in de configuratie",
+   "movieschedulestart":"Bij __cinema__ draaien de volgende films:",   
+   "moviescheduleline":"__moviename__ draait om __movietime__"
+}

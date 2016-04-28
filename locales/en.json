@@ -1,1 +1,5 @@
-{}
+{
+   "nocinemaselected": "It seems that you havent selected your favorite Cinema yet. Please change this in the settings",
+   "movieschedulestart":"At __cinema__ the following movies are scheduled:",   
+   "moviescheduleline":"__moviename__ runs at __movietime__"
+}
