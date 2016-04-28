@@ -4,7 +4,7 @@ This is an little application for the Homey ecosystem. This application gives yo
 
 ## Demonstration
 
-[![Demo CountPages alpha](http://share.gifyoutube.com/KzB6Gb.gif)](https://youtu.be/JJ8ExAa1GQA)
+[![Demo CountPages alpha](https://gifs.com/gif/M8g7P5)](https://youtu.be/JJ8ExAa1GQA)
 
 ## Release information
 current version: 0.0.1
