@@ -33,6 +33,8 @@ function init() {
 					Homey.log('Search movie schedule');
 					onScheduleTrigger();
 					return true;
+				case "search_movies_tonight":
+					Homey.log("Movie schedule evening")
 			}
 		});
 	});
@@ -105,6 +107,7 @@ var loadSchedule = function(){
 }
 
 var onGetScheduleSuccess = function(data){
+	Homey.log(data);
 	Homey.log('Succesfully retrieved schedule');
 	var schedule =data;
 	var movies = new Map();
