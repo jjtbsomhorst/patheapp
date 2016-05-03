@@ -4,7 +4,7 @@
         "en": "Pathe Cinema app",
         "nl": "Pathe bioscoop agenda"
     },
-    "version": "1.0",
+    "version": "1.0.0",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Jeroen Somhorst",

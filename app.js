@@ -7,7 +7,6 @@ var defaultHeaders= {
 			"X-Client-Token":Homey.env.AUTH_TOKEN
 }
 
-
 var defaultOptions = {
 	host: "connect.pathe.nl",
 	headers: defaultHeaders,
@@ -123,8 +122,7 @@ var onGetScheduleSuccess = function(data){
 		movies.set(movie,movietimes);
 	});
 	
-	Homey.manager('speech-output').say(
-		__("movieschedulestart",{"cinema":currentCinemaName}));
+	Homey.manager('speech-output').say(__("movieschedulestart",{"cinema":currentCinemaName}));
 	
 	movies.forEach(function(value,key,map){
 		
@@ -135,7 +133,6 @@ var onGetScheduleSuccess = function(data){
 		Homey.manager('speech-output').say(__("moviescheduleline",{"moviename": key.name,"movietime":time}));
 		
 	});
-	
 }
 
 module.exports.init = init;
