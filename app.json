@@ -28,14 +28,6 @@
                 "en": ["What movies run today"],
                 "nl": ["Welke films draaien er vandaag","Draaien er nog leuke films vandaag","Zijn er nog leuke films in de bioscoop?","Kun je mij vertellen welke films er vandaag draaien?"]
             }
-        },
-        {
-            "id":"search_movies_tonight",
-            "importance":1,
-            "triggers":{
-                "en": ["What movies run tonight"],
-                "nl": ["Welke films draaien er vanavond","Draaien er nog leuke films vanavond","Zijn er vanavond nog leuke films in de bioscoop?"]
-            }
         }
     ]
 }

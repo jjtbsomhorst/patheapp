@@ -18,7 +18,7 @@ Dutch
 * Kun je mij vertellen welke films er vandaag draaien?
 
 English
-* What movies run tonight
+* What movies run today
 
 ## Changelog
 
