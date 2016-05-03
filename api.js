@@ -1,4 +1,3 @@
-//https://connect.pathe.nl/v1/cinemas
 var https = require('https');
 
 var defaultHeaders= {

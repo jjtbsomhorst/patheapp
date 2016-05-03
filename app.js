@@ -4,7 +4,7 @@ var currentCinemaId = null;
 var currentCinemaName = null;
 
 var defaultHeaders= {
-			"X-Client-Token":"145d9cc482614938b61f33e02f49accc"
+			"X-Client-Token":Homey.env.AUTH_TOKEN
 }
 
 
