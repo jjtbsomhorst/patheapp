@@ -4,6 +4,14 @@
         "en": "Pathe Cinema app",
         "nl": "Pathe bioscoop agenda"
     },
+    "description":{
+      "nl":"Vraag Homey of er nog leuke draaien in de bioscoop vandaag",
+      "en":"Ask Homey which movies are scheduled at your local cinema"  
+    },
+    "images":{
+        "large":"./assets/images/large.jpeg",
+        "small":"./assets/images/small.jpeg"
+    },
     "version": "1.0.0",
     "compatibility": "0.x || 1.x",
     "author": {
