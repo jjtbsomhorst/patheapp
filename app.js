@@ -55,7 +55,7 @@ var onScheduleTrigger = function(){
 	if(schedule == null){
 		Homey.manager('speech-output').say(__('loadingmessage'));
 		var options = defaultOptions;
-	options.path = '/v1/cinemas/schedules?date='+currentDate.substr(0,10)+'&ids='+currentCinemaId;
+	options.path = '/v1/cinemas/schedules?date='+currentDate.substr(0,10)+'&ids='+currentCinemaId.id;
 		
 	https.get(options,function(res){
 		var body = '';
@@ -95,7 +95,10 @@ var loadSchedule = function(){
 		var jsonSchedule = JSON.parse(schedule);
 		var scheduleRetrieveDate = new Date(jsonSchedule.retrieveDate);
 		var diff = currentDate.getTime() - scheduleRetrieveDate.getTime();
-		if(diff < 900000){
+		
+		
+		
+		if((jsonSchedule.cinemas[0].id == currentCinemaId) && diff < 900000){
 			Homey.log('Schedule still valid');
 			return jsonSchedule;
 		}
@@ -106,7 +109,6 @@ var loadSchedule = function(){
 }
 
 var onGetScheduleSuccess = function(data){
-	Homey.log(data);
 	Homey.log('Succesfully retrieved schedule');
 	var schedule =data;
 	var movies = new Map();

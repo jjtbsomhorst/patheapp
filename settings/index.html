@@ -28,7 +28,7 @@
         
         Om goed gebruik te maken van de Pathe bioscoop app dien je hieronder aan te geven voor welke bioscoop je de informatie op wilt vragen.
         
-        <select ng-model="cinema" ng-options="c.name for c in cinemas"></select>
+        <select ng-model="cinema" ng-options="c.name for c in cinemas track by c.id"></select>
         
         <button ng-click="saveForm()">Save</button>
         </article>
@@ -36,11 +36,25 @@
         <script type="text/javascript">
         function onHomeyReady(){
             Homey.ready();
+            /*
+            function(err, newVariables) {
+                console.log(newVariables);
+                if (!newVariables) {
+                    newVariables = [];
+                }
+                scope.$apply(function() {
+                    vm.variables = newVariables;
+                    vm.displayedVariables = newVariables;
+                });
+            });
             
+             */
             var app = angular.module('patheSettings',[]);
             app.controller('FormController',['$scope','$http',function($scope,$http){
                 $scope.loaded = false;
-                $scope.cinema = Homey.get('currentCinema');
+                Homey.get('currentCinema',function(err,vars){
+                    $scope.cinema = vars;
+                });
                 $scope.cinemas = [];
 
                 $http.get('/api/app/eu.jeroensomhorst.pathe/').success(function(data){
@@ -51,7 +65,7 @@
                 });
                 
                 $scope.saveForm = function(){
-                    Homey.set('currentCinema',$scope.cinema.id);
+                    Homey.set('currentCinema',$scope.cinema);
                     Homey.set('currentCinemaName',$scope.cinema.name);
                 }
 

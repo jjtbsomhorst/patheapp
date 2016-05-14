@@ -22,6 +22,8 @@ English
 
 ## Changelog
 
-1.0 ----
+1.0.1 
+* Bugfix: Settings: Selected cinema was empty after changing the settings and refreshing the page.
 
+1.0 ----
 * Initial release
