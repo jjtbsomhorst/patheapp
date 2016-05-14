@@ -7,7 +7,7 @@ This is an little application for the Homey ecosystem. This application gives yo
 [![Demo CountPages alpha](https://j.gifs.com/M8g7P5.gif)](https://youtu.be/JJ8ExAa1GQA)
 
 ## Release information
-current version: 0.0.1
+current version: 1.0.0
 
 ## speech support
 
