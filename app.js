@@ -39,7 +39,11 @@ function init() {
 	});
 	
 
-
+	Homey.manager('flow').on('action.pathe_tell_schedule',function(callback,args){
+		Homey.log('Someone triggered me');
+		onScheduleTrigger();
+		callback(null,true);
+	})
 	Homey.log('Done init pathe app');
 
 	

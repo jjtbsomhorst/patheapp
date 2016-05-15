@@ -24,6 +24,19 @@
     "dependencies": {
 		"request": "*"
 	},
+    "flow" :{
+      "triggers" :[],
+      "conditions" :[],
+      "actions" :[
+          {
+              "id":"pathe_tell_schedule",
+              "title":{
+                  "en":"Dictate schedule at",
+                  "nl":"Vertel welke films er draaien op tijdstip" 
+              }
+          }
+      ]  
+    },
     "permissions": [
         "homey:manager:speech-output",
         "homey:manager:speech-input"
