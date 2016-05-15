@@ -22,6 +22,9 @@ English
 
 ## Changelog
 
+1.0.2
+* Feature: Created an custom 'then' action so you can trigger the schedule when your flows run
+
 1.0.1 
 * Bugfix: Settings: Selected cinema was empty after changing the settings and refreshing the page.
 
