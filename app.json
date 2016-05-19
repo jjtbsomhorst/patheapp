@@ -12,7 +12,7 @@
         "large":"./assets/images/large.jpeg",
         "small":"./assets/images/small.jpeg"
     },
-    "version": "1.0.2",
+    "version": "1.0.3",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Jeroen Somhorst",
