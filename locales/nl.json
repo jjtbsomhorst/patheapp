@@ -3,5 +3,6 @@
    "movieschedulestart":"Bij __cinema__ draaien de volgende films:",   
    "nomoviesscheduled":"Op dit moment draaien er bij __cinema__ geen films",
    "moviescheduleline":"__moviename__ draait om __movietime__",
-   "loadingmessage":"Ik zoek het eventjes voor je op"
+   "loadingmessage":"Ik zoek het eventjes voor je op",
+   "setupneeded":"U dient een bioscoop te selecteren in de configuratie" 
 }

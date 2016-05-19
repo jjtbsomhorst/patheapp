@@ -3,5 +3,6 @@
    "movieschedulestart":"At __cinema__ the following movies are scheduled:",   
    "moviescheduleline":"__moviename__ runs at __movietime__",
    "loadingmessage":"Please wait while I lookup that up for you",
-    "nomoviesscheduled":"At the moment there are no movies scheduled at __cinema__"
+    "nomoviesscheduled":"At the moment there are no movies scheduled at __cinema__",
+     "setupneeded":"Please specify the cinema you want to use in the settings." 
 }

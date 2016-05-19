@@ -17,12 +17,9 @@ function init() {
 	Homey.log('Init Pathe app');
 	currentCinemaId = Homey.manager('settings').get('currentCinema');
 	currentCinemaName = Homey.manager('settings').get('currentCinemaName');	
-	Homey.log(currentCinemaId);
-	Homey.log(currentCinemaName);
 	if(currentCinemaId == null || currentCinemaName == null){
 		Homey.log('No cinema selected');
-		Homey.manager('speech-output').say('U dient een bioscoop te selecteren in de configuratie');
-		//return false;
+		Homey.manager('speech-output').say(__('setupneeded'));
 	}
 	Homey.log('Listening');
 	Homey.manager('speech-input').on('speech',function(speech,callback){
@@ -49,6 +46,9 @@ function init() {
 
 var onScheduleTrigger = function(){
 	Homey.log('Start Schedule trigger');
+	
+	currentCinemaId = Homey.manager('settings').get('currentCinema');
+	currentCinemaName = Homey.manager('settings').get('currentCinemaName');	
 	
 	var currentDate = new Date().toISOString();	
 	Homey.manager('speech-output').say(__('loadingmessage'));
