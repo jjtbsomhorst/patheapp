@@ -25,6 +25,7 @@ English
 
 1.0.3
 * Several bug fixes. Bugs that caused the schedule not to reload and sometimes homey stopped reacting.
+
 1.0.2
 * Feature: Created an custom 'then' action so you can trigger the schedule when your flows run
 
