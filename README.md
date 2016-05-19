@@ -7,11 +7,12 @@ This is an little application for the Homey ecosystem. This application gives yo
 [![Demo CountPages alpha](https://j.gifs.com/M8g7P5.gif)](https://youtu.be/JJ8ExAa1GQA)
 
 ## Release information
-current version: 1.0.0
+current version: 1.0.3
 
 ## speech support
 
 Dutch
+
 * Welke films draaien er vandaag
 * Draaien er nog leuke films vandaag
 * Zijn er nog leuke films in de bioscoop?
@@ -22,6 +23,8 @@ English
 
 ## Changelog
 
+1.0.3
+* Several bug fixes. Bugs that caused the schedule not to reload and sometimes homey stopped reacting.
 1.0.2
 * Feature: Created an custom 'then' action so you can trigger the schedule when your flows run
 

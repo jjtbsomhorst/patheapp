@@ -22,7 +22,7 @@ function init() {
 	if(currentCinemaId == null || currentCinemaName == null){
 		Homey.log('No cinema selected');
 		Homey.manager('speech-output').say('U dient een bioscoop te selecteren in de configuratie');
-		return false;
+		//return false;
 	}
 	Homey.log('Listening');
 	Homey.manager('speech-input').on('speech',function(speech,callback){
@@ -32,8 +32,6 @@ function init() {
 					Homey.log('Search movie schedule');
 					onScheduleTrigger();
 					return true;
-				case "search_movies_tonight":
-					Homey.log("Movie schedule evening")
 			}
 		});
 	});
@@ -52,13 +50,9 @@ function init() {
 var onScheduleTrigger = function(){
 	Homey.log('Start Schedule trigger');
 	
-	var currentDate = new Date().toISOString();
-	var schedule = loadSchedule();
-
-	
-	if(schedule == null){
-		Homey.manager('speech-output').say(__('loadingmessage'));
-		var options = defaultOptions;
+	var currentDate = new Date().toISOString();	
+	Homey.manager('speech-output').say(__('loadingmessage'));
+	var options = defaultOptions;
 	options.path = '/v1/cinemas/schedules?date='+currentDate.substr(0,10)+'&ids='+currentCinemaId.id;
 		
 	https.get(options,function(res){
@@ -67,55 +61,21 @@ var onScheduleTrigger = function(){
 			body += chunk;	
 		}).on('end',function(){
 			Homey.log("Done retrieving schedule from server");
-			saveSchedule(body);
 			onGetScheduleSuccess(JSON.parse(body));
 		});
 	}).on('error',function(error){
 		Homey.log('error retrieving schedule');
 	});
-	}else{
-		onGetScheduleSuccess(schedule);
-		
-	}
 	
-}
-
-var saveSchedule = function(schedule){
-	Homey.log('Saving schedule');
-	var currentDate = new Date().toISOString();
-	var jsonSchedule = JSON.parse(schedule);
-	Homey.log('Set retrieval date to schedule');
-	jsonSchedule.retrieveDate = currentDate;
-	Homey.log('Persist Schedule');
-	Homey.manager('settings').set('currentSchedule',JSON.stringify(jsonSchedule));
-}
-
-var loadSchedule = function(){
-	Homey.log('Loading schedule from storage');
-	var currentDate = new Date();
-	var schedule = Homey.manager('settings').get('currentSchedule');
-	if(schedule != null){
-		Homey.log('Schedule found. Check age of schedule');
-		var jsonSchedule = JSON.parse(schedule);
-		var scheduleRetrieveDate = new Date(jsonSchedule.retrieveDate);
-		var diff = currentDate.getTime() - scheduleRetrieveDate.getTime();
-		
-		
-		
-		if((jsonSchedule.cinemas[0].id == currentCinemaId) && diff < 900000){
-			Homey.log('Schedule still valid');
-			return jsonSchedule;
-		}
-	}
-	Homey.log('No schedule found or expired. Reset schedule');
-	Homey.manager('settings').set('currentSchedule',null);
-	return null;
+	
 }
 
 var onGetScheduleSuccess = function(data){
 	Homey.log('Succesfully retrieved schedule');
+	Homey.log(data);
 	var schedule =data;
 	var movies = new Map();
+	
 	schedule.movies.forEach(function(movie){
 		var movietimes = [];
 		
@@ -127,6 +87,12 @@ var onGetScheduleSuccess = function(data){
 
 		movies.set(movie,movietimes);
 	});
+	
+	if(schedule.movies.length == 0){
+		Homey.manager('speech-output').say(__("nomoviesscheduled",{"cinema":currentCinemaName}));
+		
+		return true;
+	}
 	
 	Homey.manager('speech-output').say(__("movieschedulestart",{"cinema":currentCinemaName}));
 	
