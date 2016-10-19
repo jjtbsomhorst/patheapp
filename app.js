@@ -4,7 +4,7 @@ var currentCinemaId = null;
 var currentCinemaName = null;
 
 var defaultHeaders= {
-			"X-Client-Token":Homey.env.AUTH_TOKEN
+	"X-Client-Token":Homey.env.AUTH_TOKEN
 }
 
 var defaultOptions = {
@@ -50,7 +50,14 @@ var onScheduleTrigger = function(){
 	currentCinemaId = Homey.manager('settings').get('currentCinema');
 	currentCinemaName = Homey.manager('settings').get('currentCinemaName');	
 	
+	if(currentCinemaId == null){
+		Homey.manager('speech-output').say(__('setupneeded'));
+		return;
+	}
+
+
 	var currentDate = new Date().toISOString();	
+	Homey.log('Currentcinema '+JSON.stringify(currentCinemaId));
 	Homey.manager('speech-output').say(__('loadingmessage'));
 	var options = defaultOptions;
 	options.path = '/v1/cinemas/schedules?date='+currentDate.substr(0,10)+'&ids='+currentCinemaId.id;
