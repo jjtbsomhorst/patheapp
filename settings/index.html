@@ -36,19 +36,7 @@
         <script type="text/javascript">
         function onHomeyReady(){
             Homey.ready();
-            /*
-            function(err, newVariables) {
-                console.log(newVariables);
-                if (!newVariables) {
-                    newVariables = [];
-                }
-                scope.$apply(function() {
-                    vm.variables = newVariables;
-                    vm.displayedVariables = newVariables;
-                });
-            });
-            
-             */
+
             var app = angular.module('patheSettings',[]);
             app.controller('FormController',['$scope','$http',function($scope,$http){
                 $scope.loaded = false;

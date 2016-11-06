@@ -34,3 +34,9 @@ English
 
 1.0 ----
 * Initial release
+
+## Donate
+
+If you like the app. Please consider a donation
+
+[![paypal](https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q67ZKATD9QVLY)
